@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 export const TextInputStyled = styled.TextInput`
   width: 100%;
   height: 50px;
+  border: 1px solid red;
   border-color: #e8e8e8;
   background-color: #f6f6f6;
   border: 1px;
