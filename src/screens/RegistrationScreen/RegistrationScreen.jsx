@@ -3,12 +3,23 @@ import { ViewStyled } from "./RegistrationScreen.styled";
 import BackgroundPicture from "../../img/background.png";
 import FormRegistration from "../../components/FormRegistration/FormRegistration";
 import Background from "../../components/Background/Background";
+import { KeyboardAvoidingView } from "react-native";
 
 export default function RegistrationScreen({ isKeyboardVisible }) {
   return (
-    <ViewStyled accessibilityIgnoresInvertColors={true}>
+    <>
       <Background source={BackgroundPicture} />
-      <FormRegistration isKeyboardVisible={isKeyboardVisible} />
-    </ViewStyled>
+      <KeyboardAvoidingView
+        style={{
+          flex: 1,
+          width: "100%",
+        }}
+        behavior={Platform.OS === "ios" ? "padding" : null}
+      >
+        <ViewStyled accessibilityIgnoresInvertColors={true}>
+          <FormRegistration isKeyboardVisible={isKeyboardVisible} />
+        </ViewStyled>
+      </KeyboardAvoidingView>
+    </>
   );
 }

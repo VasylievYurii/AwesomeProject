@@ -1,18 +1,13 @@
 import React from "react";
 import ButtonAuth from "../../components/ButtonAuth/ButtonAuth";
 import InputPassword from "../../components/InputPassword/InputPassword";
-import Icon from "react-native-vector-icons/AntDesign";
+import AvatarAuthBig from "../AvatarAuthBig/AvatarAuthBig";
 import MainText from "../../components/MainText/MainText";
-import {
-  ViewFormStyled,
-  WrapperAvatar,
-  Avatar,
-  WrapperPlus,
-  WrapperInput,
-  TextInputStyled,
-} from "./FormRegistration.styled";
-import AvatarImage from "../../../assets/avatar.jpg";
+import { ViewFormStyled, WrapperInput } from "./FormRegistration.styled";
+
 import TextLink from "../TextLink/TextLink";
+import InputText from "../InputText/InputText";
+import { ScrollView } from "react-native";
 
 const FormRegistration = ({ isKeyboardVisible }) => {
   const onSubmit = () => {
@@ -25,32 +20,21 @@ const FormRegistration = ({ isKeyboardVisible }) => {
   };
   return (
     <ViewFormStyled isKeyboardVisible={isKeyboardVisible}>
-      <WrapperAvatar isKeyboardVisible={isKeyboardVisible}>
-        {isKeyboardVisible && (
-          <Avatar source={AvatarImage} resizeMode="cover" />
-        )}
-
-        <WrapperPlus>
-          {!isKeyboardVisible ? (
-            <Icon name="pluscircleo" size={25} color="#ff6c00" />
-          ) : (
-            <Icon name="closecircleo" size={25} color="#BDBDBD" />
-          )}
-        </WrapperPlus>
-      </WrapperAvatar>
+      <AvatarAuthBig isKeyboardVisible={isKeyboardVisible} />
       <MainText>Реєстрація</MainText>
-      <WrapperInput isKeyboardVisible={isKeyboardVisible}>
-        <TextInputStyled placeholder="Логін" />
-        <TextInputStyled placeholder="Адреса електронної пошти" />
-        <InputPassword />
-      </WrapperInput>
-
-      {!isKeyboardVisible && (
-        <>
-          <ButtonAuth onPress={onSubmit}>Зареєструватися</ButtonAuth>
-          <TextLink onPress={handlePress}>Вже є акаунт? Увійти</TextLink>
-        </>
-      )}
+      <ScrollView>
+        <WrapperInput isKeyboardVisible={isKeyboardVisible}>
+          <InputText type="text" name="login" placeholder="Логін" />
+          <InputText
+            type="email"
+            name="email"
+            placeholder="Адреса електронної пошти"
+          />
+          <InputPassword />
+        </WrapperInput>
+        <ButtonAuth onPress={onSubmit}>Зареєструватися</ButtonAuth>
+        <TextLink onPress={handlePress}>Вже є акаунт? Увійти</TextLink>
+      </ScrollView>
     </ViewFormStyled>
   );
 };

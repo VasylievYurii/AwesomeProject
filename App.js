@@ -28,8 +28,8 @@ export default function App() {
   }, []);
   return (
     <MainView>
-      <RegistrationScreen isKeyboardVisible={isKeyboardVisible} />
-      {/* <LoginScreen isKeyboardVisible={isKeyboardVisible} /> */}
+      {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
+      <LoginScreen isKeyboardVisible={isKeyboardVisible} />
       <StatusBar style="auto" />
     </MainView>
   );

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {
   InputPasswordWrapper,
-  TextInputStyled,
   TogglePassword,
   TogglePasswordButton,
 } from "./InputPassword.styled";
+import InputText from "../InputText/InputText";
+
 const InputPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -14,7 +15,9 @@ const InputPassword = () => {
 
   return (
     <InputPasswordWrapper>
-      <TextInputStyled
+      <InputText
+        type="password"
+        name="password"
         placeholder="Введіть пароль"
         secureTextEntry={!showPassword}
       />
