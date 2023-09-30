@@ -29,7 +29,7 @@ const FormRegistration = ({ isKeyboardVisible }) => {
     setPassword("");
   };
 
-  const onLogin = () => {
+  const onRegistration = () => {
     validationRegistrationSchema
       .validate({ login, email, password }, { abortEarly: false })
       .then(() => {
@@ -72,7 +72,7 @@ const FormRegistration = ({ isKeyboardVisible }) => {
           />
           <InputPassword value={password} onChangeText={setPassword} />
         </WrapperInput>
-        <ButtonAuth onPress={onLogin}>Зареєструватися</ButtonAuth>
+        <ButtonAuth onPress={onRegistration}>Зареєструватися</ButtonAuth>
         <TextLink onPress={handlePress}>Вже є акаунт? Увійти</TextLink>
       </ScrollView>
     </ViewFormStyled>
