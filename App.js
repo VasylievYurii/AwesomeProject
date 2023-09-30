@@ -4,10 +4,12 @@ import { StatusBar } from "expo-status-bar";
 import { MainView } from "./App.styled";
 import RegistrationScreen from "./src/screens/RegistrationScreen/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen/LoginScreen";
-import { Text } from "react-native";
+import { Text, TouchableWithoutFeedback } from "react-native";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Entypo from "@expo/vector-icons/Entypo";
+import Toast from "react-native-toast-message";
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -60,10 +62,15 @@ export default function App() {
   }
 
   return (
-    <MainView onLayout={onLayoutRootView}>
-      {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
-      <LoginScreen isKeyboardVisible={isKeyboardVisible} />
-      <StatusBar style="auto" />
-    </MainView>
+    <>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <MainView onLayout={onLayoutRootView}>
+          {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
+          <LoginScreen isKeyboardVisible={isKeyboardVisible} />
+          <StatusBar style="auto" />
+        </MainView>
+      </TouchableWithoutFeedback>
+      <Toast />
+    </>
   );
 }

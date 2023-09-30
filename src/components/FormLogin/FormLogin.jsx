@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import * as Yup from "yup";
+import Toast from "react-native-toast-message";
 import {
   ViewFormStyled,
   WrapperInput,
@@ -9,11 +11,40 @@ import MainText from "../../components/MainText/MainText";
 import ButtonAuth from "../ButtonAuth/ButtonAuth";
 import TextLink from "../TextLink/TextLink";
 import InputText from "../InputText/InputText";
-import { ScrollView } from "react-native";
+import { ScrollView, Keyboard } from "react-native";
+import { validationLoginSchema } from "../../schemas/validationLoginSchema";
 
 const FormLogin = ({ isKeyboardVisible }) => {
-  const onSubmit = () => {
-    console.log("click");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const showToast = () => {
+    Toast.show({
+      type: "success",
+      text1: "Welcome! 👋",
+    });
+  };
+
+  const cleaningForm = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const onLogin = () => {
+    validationLoginSchema
+      .validate({ email, password }, { abortEarly: false })
+      .then(() => {
+        console.log({ email, password });
+        showToast();
+        cleaningForm();
+        Keyboard.dismiss();
+      })
+      .catch((error) => {
+        Toast.show({
+          type: "error",
+          text1: `${error.errors[0]}`,
+        });
+      });
   };
 
   const handlePress = () => {
@@ -24,16 +55,18 @@ const FormLogin = ({ isKeyboardVisible }) => {
   return (
     <ViewFormStyled isKeyboardVisible={isKeyboardVisible}>
       <MainText>Увійти</MainText>
-      <ScrollView style={{ width: "100%" }}>
+      <ScrollView style={{ width: "100%" }} keyboardShouldPersistTaps="handled">
         <WrapperInput isKeyboardVisible={isKeyboardVisible}>
           <InputText
             type="email"
             name="email"
+            value={email}
+            onChangeText={setEmail}
             placeholder="Адреса електронної пошти"
           />
-          <InputPassword />
+          <InputPassword value={password} onChangeText={setPassword} />
         </WrapperInput>
-        <ButtonAuth onPress={onSubmit}>Увійти</ButtonAuth>
+        <ButtonAuth onPress={onLogin}>Увійти</ButtonAuth>
         <TextLink onPress={handlePress}>
           Немає акаунту? Зареєструватися
         </TextLink>

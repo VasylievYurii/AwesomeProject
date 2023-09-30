@@ -6,7 +6,7 @@ import {
 } from "./InputPassword.styled";
 import InputText from "../InputText/InputText";
 
-const InputPassword = () => {
+const InputPassword = ({ value, onChangeText }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -18,6 +18,8 @@ const InputPassword = () => {
       <InputText
         type="password"
         name="password"
+        value={value}
+        onChangeText={onChangeText}
         placeholder="Введіть пароль"
         secureTextEntry={!showPassword}
       />
