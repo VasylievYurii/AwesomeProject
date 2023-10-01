@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { MainView } from "./App.styled";
-import RegistrationScreen from "./src/screens/RegistrationScreen.jsx";
-import LoginScreen from "./src/screens/LoginScreen.jsx";
 import {
   Text,
   TouchableWithoutFeedback,
@@ -13,6 +13,13 @@ import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Entypo from "@expo/vector-icons/Entypo";
 import Toast from "react-native-toast-message";
+import { MainView } from "./App.styled";
+
+import RegistrationScreen from "./src/screens/RegistrationScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import Home from "./src/screens/Home";
+
+const MainStack = createStackNavigator();
 
 SplashScreen.preventAutoHideAsync();
 
@@ -66,7 +73,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <NavigationContainer>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <MainView onLayout={onLayoutRootView}>
           <KeyboardAvoidingView
@@ -83,6 +90,6 @@ export default function App() {
         </MainView>
       </TouchableWithoutFeedback>
       <Toast />
-    </>
+    </NavigationContainer>
   );
 }

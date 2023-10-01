@@ -1,17 +1,18 @@
 import React from "react";
 import BackgroundPicture from "../img/background.png";
 import Background from "../components/Background/Background";
-import FormLogin from "../components/FormLogin/FormLogin";
 import FullScreenWrapper from "../components/FullScreenWrapper/FullScreenWrapper";
+import { Text } from "react-native";
 
-const LoginScreen = ({ isKeyboardVisible }) => {
+const CommentsScreen = ({ isKeyboardVisible }) => {
   return (
     <>
       <Background source={BackgroundPicture} />
       <FullScreenWrapper>
-        <FormLogin isKeyboardVisible={isKeyboardVisible} />
+        <Text>Comments Screen</Text>
       </FullScreenWrapper>
     </>
   );
 };
-export default LoginScreen;
+
+export default CommentsScreen;

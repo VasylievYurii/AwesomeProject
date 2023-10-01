@@ -4,7 +4,7 @@ import FormRegistration from "../components/FormRegistration/FormRegistration";
 import Background from "../components/Background/Background";
 import FullScreenWrapper from "../components/FullScreenWrapper/FullScreenWrapper";
 
-export default function RegistrationScreen({ isKeyboardVisible }) {
+const RegistrationScreen = ({ isKeyboardVisible }) => {
   return (
     <>
       <Background source={BackgroundPicture} />
@@ -14,3 +14,4 @@ export default function RegistrationScreen({ isKeyboardVisible }) {
     </>
   );
 }
+export default RegistrationScreen;
