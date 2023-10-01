@@ -6,7 +6,7 @@ export const TextLinkStyled = styled.Text`
   text-decoration: underline;
   color: #1b4371;
   text-align: center;
-  font-family: "Roboto";
+  font-family: "Roboto-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

@@ -8,12 +8,12 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
+  Platform,
 } from "react-native";
-import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import Entypo from "@expo/vector-icons/Entypo";
 import Toast from "react-native-toast-message";
 import { MainView } from "./App.styled";
+import { useFonts } from "expo-font";
 
 import RegistrationScreen from "./src/screens/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
@@ -25,21 +25,23 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-  const [appIsReady, setAppIsReady] = useState(false);
+
+  const [fontsLoaded] = useFonts({
+    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
 
   useEffect(() => {
     async function prepare() {
       try {
-        setAppIsReady(false);
-        await Font.loadAsync(Entypo.font);
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await SplashScreen.preventAutoHideAsync();
       } catch (e) {
         console.warn(e);
       } finally {
-        setAppIsReady(true);
+        await SplashScreen.hideAsync();
       }
     }
-
     prepare();
   }, []);
 
@@ -63,13 +65,13 @@ export default function App() {
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
+    if (fontsLoaded) {
       await SplashScreen.hideAsync();
     }
-  }, [appIsReady]);
+  }, [fontsLoaded]);
 
-  if (!appIsReady) {
-    return <Text>Loading...</Text>;
+  if (!fontsLoaded) {
+    return null;
   }
 
   return (
@@ -81,10 +83,31 @@ export default function App() {
               flex: 1,
               width: "100%",
             }}
-            behavior={Platform.OS === "ios" ? "padding" : null}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
-            {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
-            <LoginScreen isKeyboardVisible={isKeyboardVisible} />
+            <MainStack.Navigator initialRouteName="Login">
+              <MainStack.Screen
+                name="Registration"
+                options={{ headerShown: false }}
+              >
+                {(props) => (
+                  <RegistrationScreen
+                    {...props}
+                    isKeyboardVisible={isKeyboardVisible}
+                  />
+                )}
+              </MainStack.Screen>
+              <MainStack.Screen name="Login" options={{ headerShown: false }}>
+                {(props) => (
+                  <LoginScreen
+                    {...props}
+                    isKeyboardVisible={isKeyboardVisible}
+                  />
+                )}
+              </MainStack.Screen>
+              <MainStack.Screen name="Home" component={Home} />
+            </MainStack.Navigator>
+
             <StatusBar style="auto" />
           </KeyboardAvoidingView>
         </MainView>

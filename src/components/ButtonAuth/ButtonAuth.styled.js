@@ -13,7 +13,7 @@ export const TouchableButton = styled.TouchableOpacity`
 export const TouchableButtonText = styled.Text`
   color: #fff;
   text-align: center;
-  font-family: "Roboto";
+  font-family: "Roboto-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

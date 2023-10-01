@@ -12,7 +12,7 @@ export const TogglePassword = styled.TouchableOpacity`
 
 export const TogglePasswordButton = styled.Text`
   color: #1b4371;
-  font-family: Roboto;
+  font-family: "Roboto-Regular";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

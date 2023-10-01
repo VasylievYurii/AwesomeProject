@@ -13,5 +13,5 @@ const RegistrationScreen = ({ isKeyboardVisible }) => {
       </FullScreenWrapper>
     </>
   );
-}
+};
 export default RegistrationScreen;

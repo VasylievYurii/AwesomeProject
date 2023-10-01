@@ -10,11 +10,13 @@ import TextLink from "../TextLink/TextLink";
 import InputText from "../InputText/InputText";
 import { ScrollView, Keyboard } from "react-native";
 import { validationRegistrationSchema } from "../../schemas/validationRegistrationSchema";
+import { useNavigation } from "@react-navigation/native";
 
 const FormRegistration = ({ isKeyboardVisible }) => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
   const showToast = () => {
     Toast.show({
@@ -47,8 +49,7 @@ const FormRegistration = ({ isKeyboardVisible }) => {
   };
 
   const handlePress = () => {
-    const url = "#";
-    Linking.openURL(url);
+    navigation.navigate("Login");
   };
   return (
     <ViewFormStyled isKeyboardVisible={isKeyboardVisible}>
