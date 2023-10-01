@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import * as Yup from "yup";
 import Toast from "react-native-toast-message";
-import {
-  ViewFormStyled,
-  WrapperInput,
-} from "../../screens/LoginScreen/LoginScreen.styled";
+import { ViewFormStyled, WrapperInput } from "../FormLogin/FormLogin.styled.js";
 import { Linking } from "react-native";
 import InputPassword from "../../components/InputPassword/InputPassword";
 import MainText from "../../components/MainText/MainText";

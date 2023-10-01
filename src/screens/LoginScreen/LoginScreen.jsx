@@ -16,7 +16,6 @@ export default function LoginScreen({ isKeyboardVisible }) {
         behavior={Platform.OS === "ios" ? "padding" : null}
       >
         <ViewStyled accessibilityIgnoresInvertColors={true}>
-          <Background source={BackgroundPicture} />
           <FormLogin isKeyboardVisible={isKeyboardVisible} />
         </ViewStyled>
       </KeyboardAvoidingView>
