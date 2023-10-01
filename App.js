@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Keyboard } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { MainView } from "./App.styled";
-import RegistrationScreen from "./src/screens/RegistrationScreen/RegistrationScreen";
-import LoginScreen from "./src/screens/LoginScreen/LoginScreen";
-import { Text, TouchableWithoutFeedback } from "react-native";
+import RegistrationScreen from "./src/screens/RegistrationScreen.jsx";
+import LoginScreen from "./src/screens/LoginScreen.jsx";
+import {
+  Text,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  Keyboard,
+} from "react-native";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Entypo from "@expo/vector-icons/Entypo";
@@ -65,9 +69,17 @@ export default function App() {
     <>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <MainView onLayout={onLayoutRootView}>
-          {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
-          <LoginScreen isKeyboardVisible={isKeyboardVisible} />
-          <StatusBar style="auto" />
+          <KeyboardAvoidingView
+            style={{
+              flex: 1,
+              width: "100%",
+            }}
+            behavior={Platform.OS === "ios" ? "padding" : null}
+          >
+            {/* <RegistrationScreen isKeyboardVisible={isKeyboardVisible} /> */}
+            <LoginScreen isKeyboardVisible={isKeyboardVisible} />
+            <StatusBar style="auto" />
+          </KeyboardAvoidingView>
         </MainView>
       </TouchableWithoutFeedback>
       <Toast />
