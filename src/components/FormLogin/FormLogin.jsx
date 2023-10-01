@@ -34,8 +34,8 @@ const FormLogin = ({ isKeyboardVisible }) => {
       .then(() => {
         console.log({ email, password });
         showToast();
+        navigation.navigate("Home");
         cleaningForm();
-        Keyboard.dismiss();
       })
       .catch((error) => {
         Toast.show({

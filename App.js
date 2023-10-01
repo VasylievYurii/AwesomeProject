@@ -105,7 +105,11 @@ export default function App() {
                   />
                 )}
               </MainStack.Screen>
-              <MainStack.Screen name="Home" component={Home} />
+              <MainStack.Screen
+                name="Home"
+                component={Home}
+                options={{ headerShown: false }}
+              />
             </MainStack.Navigator>
 
             <StatusBar style="auto" />
