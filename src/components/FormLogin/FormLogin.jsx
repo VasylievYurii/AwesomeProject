@@ -34,7 +34,10 @@ const FormLogin = ({ isKeyboardVisible }) => {
       .then(() => {
         console.log({ email, password });
         showToast();
-        navigation.navigate("Home");
+        navigation.navigate("Home", {
+          screen: "PostsScreen",
+          params: { email, password },
+        });
         cleaningForm();
       })
       .catch((error) => {

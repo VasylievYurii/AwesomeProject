@@ -18,6 +18,7 @@ import { useFonts } from "expo-font";
 import RegistrationScreen from "./src/screens/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import Home from "./src/screens/Home";
+import PostsScreen from "./src/screens/PostsScreen";
 
 const MainStack = createStackNavigator();
 
@@ -87,6 +88,13 @@ export default function App() {
           >
             <MainStack.Navigator initialRouteName="Login">
               <MainStack.Screen
+                name="Home"
+                component={Home}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <MainStack.Screen
                 name="Registration"
                 options={{ headerShown: false }}
               >
@@ -106,9 +114,9 @@ export default function App() {
                 )}
               </MainStack.Screen>
               <MainStack.Screen
-                name="Home"
-                component={Home}
-                options={{ headerShown: false }}
+                name="PostsScreen"
+                component={PostsScreen}
+                options={{ title: "Публікації" }}
               />
             </MainStack.Navigator>
 

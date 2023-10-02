@@ -1,12 +1,15 @@
 import React from "react";
 import FullScreenWrapper from "../components/FullScreenWrapper/FullScreenWrapper";
 import { Text } from "react-native";
+import { View } from "react-native";
 
 const ProfileScreen = () => {
   return (
     <>
       <FullScreenWrapper>
-        <Text>Profile Screen</Text>
+        <View style={{ flex: 1, width: "100%", backgroundColor: "#fff" }}>
+          <Text>Profile Screen</Text>
+        </View>
       </FullScreenWrapper>
     </>
   );
