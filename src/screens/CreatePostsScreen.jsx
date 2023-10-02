@@ -1,17 +1,21 @@
 import React from "react";
-import FullScreenWrapper from "../components/FullScreenWrapper/FullScreenWrapper";
-import { Text } from "react-native";
 import { View } from "react-native";
+import CreatePost from "../components/CreatePost/CreatePost";
 
 const CreatePostsScreen = () => {
   return (
-    <>
-      <FullScreenWrapper>
-        <View style={{ flex: 1, width: "100%", backgroundColor: "#fff" }}>
-          <Text>Create Posts Screen</Text>
-        </View>
-      </FullScreenWrapper>
-    </>
+    <View
+      style={{
+        flex: 1,
+        width: "100%",
+        backgroundColor: "#fff",
+        paddingTop: 32,
+        paddingLeft: 16,
+        paddingRight: 16,
+      }}
+    >
+      <CreatePost />
+    </View>
   );
 };
 

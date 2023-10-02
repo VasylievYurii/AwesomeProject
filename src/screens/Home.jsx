@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Feather";
 import CreatePostsScreen from "./CreatePostsScreen";
@@ -11,8 +11,9 @@ const Tabs = createBottomTabNavigator();
 const Home = () => {
   return (
     <Tabs.Navigator
+      backBehavior="initialRoute"
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused, color }) => {
           let iconName;
 
           switch (route.name) {
@@ -55,17 +56,18 @@ const Home = () => {
           height: 83,
           paddingBottom: 9,
           borderTopWidth: 1,
-          borderTopColor: "#E8E8E8",
+          borderTopColor: "rgba(0, 0, 0, 0.30)",
         },
         tabBarShowLabel: false,
         headerStyle: {
           borderBottomWidth: 1,
-          borderBottomColor: "#E8E8E8",
+          borderBottomColor: "rgba(0, 0, 0, 0.30)",
         },
         headerTitleStyle: {
           fontSize: 17,
         },
         headerTitleAlign: "center",
+        tabBarHideOnKeyboard: true,
       })}
     >
       <Tabs.Screen
@@ -92,7 +94,9 @@ const Home = () => {
         name="CreatePostsScreen"
         component={CreatePostsScreen}
         options={{
+          tabBarStyle: { display: "none" },
           headerTitle: "Створити публікацію",
+
           headerLeft: () => (
             <Icon
               name="arrow-left"
@@ -112,7 +116,7 @@ const Home = () => {
             alignSelf: "flex-start",
             paddingRight: 39,
           },
-          headerTitle: "Профайл",
+          headerShown: false,
         }}
       />
     </Tabs.Navigator>

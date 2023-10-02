@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import {
-  Text,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
