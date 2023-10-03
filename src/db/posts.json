@@ -5,7 +5,7 @@
     "comments": 3,
     "likes": 153,
     "location": "Ukraine",
-    "photo": "'../../img/forest.jpg'"
+    "photo": "https://s3-alpha-sig.figma.com/img/10eb/cad8/e6009416f2009943b9cd5d7f02695269?Expires=1697414400&Signature=dC9HZ20TIvIhRFVGMFktQnR7ITMAlr-xQ1swA5J3DCP2u1CVwzJEFuZR9PCj3O9PYxHRLqIhCxIOLVt33gaK0AEivXsNU4MCjhPm8y68aP0yaeNCx8Nojp-6i5iyarxNUQ9ns51WbiMcERsTIXJ9UCDLryjGBbPqqZQ1R0r90dWKV7aBB0rg27Ia-agGb-m4f~~leM9wUEo9Si400-a3-ZPiH1Yi0hHr6WO5flMiVxHr3c2oq4JMHpZFupfx45zhfxqRfkuUyx8gtj4chAWcYXl5qK2xaA7dy0LRLNF7q2T6tda88f3r60jtBW8VXgCr-gFlLXfSUcgLcBS1kylsQA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
   },
   {
     "id": "2",
@@ -13,7 +13,7 @@
     "comments": 0,
     "likes": 200,
     "location": "Ukraine",
-    "photo": "sunset.jpg"
+    "photo": "https://s3-alpha-sig.figma.com/img/f15d/159f/a6ce3338a59841e1e3f926d58a5f2ae7?Expires=1697414400&Signature=Xr9AEgtceu~ztYTKucGBlXhN3DE72FTGm-7tqQ-BPNOcYNykILagJPjwfUp67pjhvaiZ7P4MnquqhSjmgnFgL6qQHKYyN2qyMh-SD0-ODMN3Csy92u6OsjIIQ5eUako6~wnBsmJJlXf8FyU6CZS1p~bTOomW-0cILKlz7ZBhCAO9PTiXhhexAVKxFsGiUPmSl08Nu49p~F4~GBgWQyTW09Hjtk~lkeHLpBSL6Bc7NLm2XCs6rLEQ91mEUxhgHjiJaNWHy98fMoUYP1WQdCdDEndDc~g7qhyaX3Hx3OQWMvahx~G9f4LDggN-pJBiZGJNudDd7OMs~JzS2rE0Bk33bw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
   },
   {
     "id": "3",
@@ -21,6 +21,6 @@
     "comments": 50,
     "likes": 0,
     "location": "Italy",
-    "photo": "oldHouse.jpg"
+    "photo": "https://s3-alpha-sig.figma.com/img/5e97/0c74/9cd3abbfbe6ba44f66a368baac9c2839?Expires=1697414400&Signature=ZzTXAlKnTKePL7YNKuaG6qy~8cNxQX3hFrw4Cvu7qRRTwlGKTTEqfAgB8~JKo4RCQFxsk87ZwinVKJx97ow7P03-4kaX9HZOxS~KLP~DJjE~flqAPuY1E-jSUGz~368yfjdXo4VPuwZpuAXwRFfMOCvwqRUTZEEP-~9mEA7HHM7O4XkVW32PCHacP~RqJNc~tMlkLL6DTP2xYthhu1wqiHBe6yuRMZRN3shXHYCn5v47MeUINzpcKHfcSKB0mggFdcJha-yvcWrk7qsojzKfsAnIYeZ0QXhNS8D8BBWELlksRU67-R81S3QrCWsodhoPfllxGhfLMkPt5YMhFQsivw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
   }
 ]

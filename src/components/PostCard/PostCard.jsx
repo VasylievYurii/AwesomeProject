@@ -37,7 +37,7 @@ const PostCard = ({ item }) => {
   return (
     <MainWrapper>
       <PhotoWrapper>
-        <Photo source={require("../../img/forest.jpg")} resizeMode="cover" />
+        <Photo source={{ uri: photo }} resizeMode="cover" />
       </PhotoWrapper>
       <Description>{title}</Description>
       <BottomDescriptionWrapper>
