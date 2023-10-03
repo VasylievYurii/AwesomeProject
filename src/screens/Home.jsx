@@ -5,13 +5,36 @@ import Icon from "react-native-vector-icons/Feather";
 import CreatePostsScreen from "./CreatePostsScreen";
 import PostsScreen from "./PostsScreen";
 import ProfileScreen from "./ProfileScreen";
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 const Tabs = createBottomTabNavigator();
 
+const initialTabBarStyle = {
+  display: "flex",
+  flexDirection: "row",
+  height: 83,
+  paddingBottom: 9,
+  borderTopWidth: 1,
+  borderTopColor: "rgba(0, 0, 0, 0.30)",
+};
+
 const Home = () => {
+  const navigation = useNavigation();
+  const [tabBarStyle, setTabBarStyle] = useState(initialTabBarStyle);
+
+  const onBack = () => {
+    setTabBarStyle(initialTabBarStyle);
+    navigation.navigate("Home", { screen: "PostsScreen" });
+  };
+
+  const onLogOut = () => {
+    navigation.navigate("Login");
+  };
+
   return (
     <Tabs.Navigator
-      backBehavior="initialRoute"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
           let iconName;
@@ -50,14 +73,7 @@ const Home = () => {
         },
         tabBarActiveTintColor: "#FF6C00",
         tabBarInactiveTintColor: "rgba(33, 33, 33, 0.8)",
-        tabBarStyle: {
-          display: "flex",
-          flexDirection: "row",
-          height: 83,
-          paddingBottom: 9,
-          borderTopWidth: 1,
-          borderTopColor: "rgba(0, 0, 0, 0.30)",
-        },
+        tabBarStyle: tabBarStyle,
         tabBarShowLabel: false,
         headerStyle: {
           borderBottomWidth: 1,
@@ -80,12 +96,14 @@ const Home = () => {
           },
           headerTitle: "Публікації",
           headerRight: () => (
-            <Icon
-              name="log-out"
-              size={24}
-              style={{ marginRight: 16 }}
-              color="#BDBDBD"
-            />
+            <TouchableOpacity onPress={onLogOut}>
+              <Icon
+                name="log-out"
+                size={24}
+                style={{ marginRight: 16 }}
+                color="#BDBDBD"
+              />
+            </TouchableOpacity>
           ),
         }}
       />
@@ -98,12 +116,14 @@ const Home = () => {
           headerTitle: "Створити публікацію",
 
           headerLeft: () => (
-            <Icon
-              name="arrow-left"
-              size={24}
-              style={{ marginLeft: 20 }}
-              color="#000"
-            />
+            <TouchableOpacity onPress={onBack}>
+              <Icon
+                name="arrow-left"
+                size={24}
+                style={{ marginLeft: 20 }}
+                color="#000"
+              />
+            </TouchableOpacity>
           ),
         }}
       />

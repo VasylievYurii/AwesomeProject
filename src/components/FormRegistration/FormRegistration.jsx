@@ -8,7 +8,7 @@ import { ViewFormStyled, WrapperInput } from "./FormRegistration.styled";
 
 import TextLink from "../TextLink/TextLink";
 import InputText from "../InputText/InputText";
-import { ScrollView, Keyboard } from "react-native";
+import { ScrollView } from "react-native";
 import { validationRegistrationSchema } from "../../schemas/validationRegistrationSchema";
 import { useNavigation } from "@react-navigation/native";
 

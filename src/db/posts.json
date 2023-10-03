@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Ліс",
+    "comments": 3,
+    "likes": 153,
+    "location": "Ukraine",
+    "photo": "'../../img/forest.jpg'"
+  },
+  {
+    "id": "2",
+    "title": "Захід на Чорному морі",
+    "comments": 0,
+    "likes": 200,
+    "location": "Ukraine",
+    "photo": "sunset.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Старий будиночок у Венеції",
+    "comments": 50,
+    "likes": 0,
+    "location": "Italy",
+    "photo": "oldHouse.jpg"
+  }
+]
